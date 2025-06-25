@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love Code Generator</title>
+  <meta name="description" content="Generate love-based HTML code like cards, proposals, and games from prompts." />
+  <meta name="keywords" content="love, html, generator, proposal, card, love website" />
+  <meta name="author" content="You" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      padding: 30px;
+      color: #333;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #e91e63;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .output {
+      background-color: #212121;
+      color: #00ff88;
+      padding: 15px;
+      font-family: monospace;
+      border-radius: 8px;
+      white-space: pre-wrap;
+    }
+
+    .ad {
+      margin: 20px 0;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px dashed #ccc;
+      text-align: center;
+    }
+
+    a {
+      color: #e91e63;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>💘 Love Code Generator</h1>
+  <div class="ad">✨ This could be an ad for chocolate, flowers, or... love insurance? 😂</div>
+  <p>Type what you want to make for someone special (like "make a proposal game" or "create a love card"):</p>
+  <input type="text" id="userInput" placeholder="e.g. make a romantic HTML card" />
+  <button onclick="generateCode()">💡 Generate Code</button>
+
+  <div class="output" id="outputCode"></div>
+  <button onclick="copyCode()">📋 Copy Code</button>
+  <button onclick="downloadCode()">⬇️ Download HTML</button>
+
+  <div class="ad">💖 Follow me on Instagram: <a href="https://instagram.com/gxrvbudhija" target="_blank">@gxrvbudhija</a></div>
+
+  <h2>📖 How to Use</h2>
+  <ul>
+    <li>Type your idea like: <i>"make a love proposal game"</i></li>
+    <li>Click <b>Generate</b> to get ready-made HTML code</li>
+    <li>Copy or download the code and send it to your special one 💌</li>
+  </ul>
+
+  <div class="ad">📢 Want to support this project? Share it with your friends who are in love! 💞</div>
+
+  <script>
+    function generateCode() {
+      const input = document.getElementById("userInput").value.toLowerCase();
+      const output = document.getElementById("outputCode");
+      let code = "";
+
+      if (input.includes("card")) {
+        code = `<html><body style='text-align:center;background:pink;'>\n<h1>Happy Love Day ❤️</h1>\n<p>You mean the world to me!</p>\n</body></html>`;
+      } else if (input.includes("proposal") || input.includes("yes no")) {
+        code = `<html><body style='text-align:center;'>\n<h1>Do you love me? 💖</h1>\n<button onclick='alert(\"Yay!! I love you too 😘\")'>Yes</button>\n<button onmouseover='this.style.position=\"absolute\"; this.style.left=Math.random()*300+\"px\";'>No</button>\n</body></html>`;
+      } else if (input.includes("quiz")) {
+        code = `<html><body>\n<h1>Love Quiz 💘</h1>\n<p>Who is the cutest? 🥰</p>\n<ol>\n<li>You</li>\n<li>Also you</li>\n<li>Still you</li>\n</ol>\n</body></html>`;
+      } else {
+        code = `Sorry, I don't understand this prompt yet. Try words like "card", "proposal", or "quiz".`;
+      }
+
+      output.textContent = code;
+    }
+
+    function copyCode() {
+      const text = document.getElementById("outputCode").textContent;
+      navigator.clipboard.writeText(text);
+      alert("Copied to clipboard!");
+    }
+
+    function downloadCode() {
+      const text = document.getElementById("outputCode").textContent;
+      const blob = new Blob([text], { type: "text/html" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "love_code.html";
+      link.click();
+    }
+  </script>
+</body>
+</html>
